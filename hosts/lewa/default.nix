@@ -8,7 +8,7 @@ programs.zsh.enable = true;
 system.defaults.dock.autohide = true;
 home-manager.useGlobalPkgs = true;
 home-manager.useUserPackages = true;
-home-manager.users.test = { pkgs, ... }: {
+home-manager.users.caleb = { pkgs, ... }: {
   home.stateVersion = "22.05";
   programs.tmux = { # my tmux configuration, for example
     enable = true;
@@ -26,12 +26,15 @@ home-manager.users.test = { pkgs, ... }: {
   };
 };
 homebrew = {
-  enable = true;
-  autoUpdate = true;
+  onActivation.enable = true;
+  onActivation.autoUpdate = true;
   # updates homebrew packages on activation,
   # can make darwin-rebuild much slower (otherwise i'd forget to do it ever though)
   casks = [
     "iina"
+    "discord"
+    "firefox"
+    "visual-studio-code"
   ];
 };
 

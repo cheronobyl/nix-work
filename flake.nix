@@ -1,7 +1,7 @@
 {
 
 inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.05-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.11-darwin";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # nix will normally use the nixpkgs defined in home-managers inputs, we only want one copy of nixpkgs though
