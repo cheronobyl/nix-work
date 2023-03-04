@@ -1,5 +1,4 @@
 {
-  description = "A Mac-Darwin Flake";
 
 inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-22.05-darwin";
