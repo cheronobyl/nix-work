@@ -15,7 +15,15 @@ outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, darwin }: {
   darwinConfigurations."lewa" = darwin.lib.darwinSystem {
     # 2017 MBP, 15in
     system = "x86_64-darwin";
-    modules = [ home-manager.darwinModules.home-manager ./hosts/lewa/default.nix ]; # will be important later
+    modules = [ 
+      home-manager.darwinModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.caleb = import ./home.nix;
+      }
+      ./hosts/lewa/default.nix
+      ]; # will be important later
   };
   darwinConfigurations."gahli" = darwin.lib.darwinSystem {
     # 2015 MBP, 13in
