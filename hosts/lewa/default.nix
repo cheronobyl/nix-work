@@ -25,7 +25,6 @@
       '';
     };
     programs.mkpasswd.enable = true;
-    programs.iterm2.enable = true;
     programs.ripgrep.enable = true;
   };
   homebrew = {
