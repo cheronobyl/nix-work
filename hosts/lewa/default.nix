@@ -23,10 +23,10 @@
         new-session -s main
         bind-key -n C-a send-prefix
       '';
+    };
     programs.mkpasswd.enable = true;
     programs.iterm2.enable = true;
     programs.ripgrep.enable = true;
-    };
   };
   homebrew = {
     enable = true;
