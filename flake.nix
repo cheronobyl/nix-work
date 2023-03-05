@@ -13,10 +13,14 @@ inputs = {
 
 outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, darwin }: {
   darwinConfigurations."lewa" = darwin.lib.darwinSystem {
-  # you can have multiple darwinConfigurations per flake, one per hostname
-
-    system = "x86_64-darwin"; # "x86_64-darwin" if you're using a pre M1 mac
+    # 2017 MBP, 15in
+    system = "x86_64-darwin";
     modules = [ home-manager.darwinModules.home-manager ./hosts/lewa/default.nix ]; # will be important later
+  };
+  darwinConfigurations."gahli" = darwin.lib.darwinSystem {
+    # 2015 MBP, 13in
+    system = "x86_64-darwin";
+    modules = [ home-manager.darwinModules.home-manager ./hosts/gali/default.nix ]; # will be important later
   };
 };
 
