@@ -5,7 +5,11 @@
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
   programs.zsh.enable = true;
-  system.defaults.dock.autohide = true;
+  system.defaults = {
+    dock.autohide = true;
+    NSGlobalDomain.AppleICUForce24HourTime = true;
+    NSGlobalDomain.AppleInterfaceStyle = "Dark";
+  };
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.caleb = { pkgs, ... }: {
@@ -24,8 +28,11 @@
         bind-key -n C-a send-prefix
       '';
     };
-    programs.mkpasswd.enable = true;
-    programs.ripgrep.enable = true;
+    programs.fish.enable = true;
+    home.packages = [
+      pkgs.ripgrep
+#      pkgs.super-slicer
+    ];
   };
   homebrew = {
     enable = true;
@@ -35,10 +42,16 @@
     casks = [
       "iina"
       "discord"
+      "keepassxc"
       "firefox"
       "hammerspoon"
+      "iterm2"
+      "protonvpn"
       "rectangle"
+      "rustdesk"
+      "superslicer"
       "visual-studio-code"
+      "nrlquaker-winbox"
     ];
   };
 

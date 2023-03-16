@@ -17,11 +17,6 @@ outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, darwin }: {
     system = "x86_64-darwin";
     modules = [ 
       home-manager.darwinModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.caleb = import ./home.nix;
-      }
       ./hosts/lewa/default.nix
       ]; # will be important later
   };
