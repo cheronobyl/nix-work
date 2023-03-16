@@ -50,6 +50,7 @@
       "rectangle"
       "rustdesk"
       "superslicer"
+      "steam"
       "visual-studio-code"
       "nrlquaker-winbox"
     ];
