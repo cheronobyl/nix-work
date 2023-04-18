@@ -31,7 +31,6 @@
     programs.fish.enable = true;
     home.packages = [
       pkgs.ripgrep
-#      pkgs.super-slicer
     ];
   };
   homebrew = {
@@ -46,6 +45,7 @@
       "firefox"
       "hammerspoon"
       "iterm2"
+      "moonlight"
       "protonvpn"
       "rectangle"
       "rustdesk"
