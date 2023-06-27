@@ -12,18 +12,26 @@ inputs = {
 };
 
 outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, darwin }: {
+  darwinConfigurations."gali" = darwin.lib.darwinSystem {
+    # 2015 MBP, 13in
+    system = "x86_64-darwin";
+    modules = [ home-manager.darwinModules.home-manager ./hosts/gali/default.nix ];
+  };
   darwinConfigurations."lewa" = darwin.lib.darwinSystem {
     # 2017 MBP, 15in
     system = "x86_64-darwin";
     modules = [ 
       home-manager.darwinModules.home-manager
       ./hosts/lewa/default.nix
-      ]; # will be important later
+      ];
   };
-  darwinConfigurations."gahli" = darwin.lib.darwinSystem {
-    # 2015 MBP, 13in
-    system = "x86_64-darwin";
-    modules = [ home-manager.darwinModules.home-manager ./hosts/gali/default.nix ]; # will be important later
+  darwinConfigurations."matau" = darwin.lib.darwinSystem {
+    # 2021 MBP, 14in
+    system = "aarch64-darwin";
+    modules = [ 
+      home-manager.darwinModules.home-manager
+      ./hosts/matau/default.nix
+      ];
   };
 };
 
