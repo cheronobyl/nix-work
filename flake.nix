@@ -32,8 +32,7 @@ outputs = { self, nixpkgs, home-manager, darwin }: {
     modules = [ 
       home-manager.darwinModules.home-manager
       ./hosts/matau/default.nix
-      ];
-
+    ];
   };
 };
 
