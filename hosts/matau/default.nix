@@ -8,22 +8,16 @@ let
   };
 in
 {
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      nix = pkgsUnstable.nix;
-    })
-  ];
-
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
-#  nix.settings = {};
   nix.package = pkgsUnstable.nix;
-  nix.extraOptions = ''
-    ssl-cert-file = /etc/ssl/certs/ca-certificates.crt
-    experimental-features = nix-command flakes
-  '';
-#  nix.settings.ssl-cert-file = "/etc/ssl/certs/ca-certificates.crt";
+  nix.settings = {
+    ssl-cert-file = "/etc/ssl/certs/ca-certificates.crt";
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
   programs.zsh.enable = true;
   system.defaults = {
     dock.autohide = true;
