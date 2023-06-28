@@ -5,7 +5,6 @@
     nixpkgs-linux.url = "github:NixOS/nixpkgs/nixos-23.05";
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    #  nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
 
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     # there could be minor differences between the commits of the Darwin stable channel and the Linux ones.
@@ -16,7 +15,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-linux, nixpkgs-darwin
+  outputs = { self, nixpkgs-unstable, nixpkgs-linux, nixpkgs-darwin
     , home-manager, darwin }:
     let
       genExtraNixpkgsChannels = { config, system }: {
@@ -60,6 +59,7 @@
           ./hosts/lewa/default.nix
           overlayNixpkgsChannelsModule
         ];
+        inputs = { nixpkgs = nixpkgs-unstable; };
       };
       darwinConfigurations."matau" = darwin.lib.darwinSystem {
         # 2021 MBP, 14in
@@ -69,7 +69,7 @@
           ./hosts/matau/default.nix
           overlayNixpkgsChannelsModule
         ];
-        inputs = { inherit nixpkgs-unstable; };
+        inputs = { nixpkgs = nixpkgs-darwin; };
       };
     };
 }
