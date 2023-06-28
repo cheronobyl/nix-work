@@ -12,7 +12,7 @@ inputs = {
   darwin.inputs.nixpkgs.follows = "nixpkgs";
 };
 
-outputs = { self, nixpkgs, home-manager, darwin }: {
+outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, darwin }: {
   darwinConfigurations."gali" = darwin.lib.darwinSystem {
     # 2015 MBP, 13in
     system = "x86_64-darwin";
@@ -33,6 +33,7 @@ outputs = { self, nixpkgs, home-manager, darwin }: {
       home-manager.darwinModules.home-manager
       ./hosts/matau/default.nix
     ];
+    inputs = { inherit nixpkgs-unstable; };
   };
 };
 
