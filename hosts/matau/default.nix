@@ -1,11 +1,18 @@
 # hosts/matau/default.nix
-{ pkgs, inputs, ... }:
+{ pkgs, config, inputs, ... }:
+
+let
+  pkgsUnstable = import inputs.nixpkgs-unstable {
+    inherit (pkgs) system;
+    inherit (config.nixpkgs) config;
+  };
+in
 {
 
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
 #  nix.settings = {};
-  nix.package = inputs.nixpkgs-unstable.pkgs.nix;
+  nix.package = pkgsUnstable.nix;
 #  nix.settings.ssl-cert-file = "/etc/ssl/certs/ca-certificates.crt";
   programs.zsh.enable = true;
   system.defaults = {
