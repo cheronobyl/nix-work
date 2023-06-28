@@ -3,6 +3,7 @@
 inputs = {
   # I think this should allow me to source the righht config for the right system type. 
   nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+  nixpkgs-unstable.url = "github:NixOs/nixpkgs/nixpkgs-unstable";
 #  nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
   home-manager.url = "github:nix-community/home-manager/release-23.05";
   home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +33,7 @@ outputs = { self, nixpkgs, home-manager, darwin }: {
       home-manager.darwinModules.home-manager
       ./hosts/matau/default.nix
       ];
+
   };
 };
 
