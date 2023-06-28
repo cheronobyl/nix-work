@@ -10,6 +10,7 @@
     NSGlobalDomain.AppleICUForce24HourTime = true;
     NSGlobalDomain.AppleInterfaceStyle = "Dark";
   };
+  users.users.caleb.home = "/Users/caleb";
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.caleb = { pkgs, ... }: {
@@ -35,7 +36,8 @@
   };
   homebrew = {
     enable = true;
-    autoUpdate = true;
+    onActivation.autoUpdate = true;
+    onActivation.upgrade = true;
     # updates homebrew packages on activation,
     # can make darwin-rebuild much slower (otherwise i'd forget to do it ever though)
     casks = [
