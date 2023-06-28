@@ -9,6 +9,12 @@ let
 in
 {
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      nix = pkgsUnstable.nix;
+    };)
+  ];
+
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
 #  nix.settings = {};
