@@ -4,6 +4,9 @@
 
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
+#  nix.settings = {};
+  nix.package = pkgs.nix;
+  nix.settings.ssl-cert-file = "/etc/ssl/certs/ca-certificates.crt";
   programs.zsh.enable = true;
   system.defaults = {
     dock.autohide = true;
