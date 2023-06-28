@@ -12,7 +12,7 @@ in
   nixpkgs.overlays = [
     (final: prev: {
       nix = pkgsUnstable.nix;
-    };)
+    })
   ];
 
   # Make sure the nix daemon always runs
@@ -30,6 +30,7 @@ in
     NSGlobalDomain.AppleICUForce24HourTime = true;
     NSGlobalDomain.AppleInterfaceStyle = "Dark";
   };
+  users.users.caleb.home = "/Users/caleb";
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.caleb = { pkgs, ... }: {
