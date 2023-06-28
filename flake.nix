@@ -19,26 +19,26 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-linux, nixpkgs-darwin
     , home-manager, darwin }:
     let
-      genExtraNixpkgsChannels = config: {
+      genExtraNixpkgsChannels = { config, system }: {
         pkgsStableLinux = import nixpkgs-linux {
-          inherit (pkgs) system;
+          inherit system;
           inherit (config.nixpkgs) config;
         };
         pkgsStableDarwin = import nixpkgs-darwin {
-          inherit (pkgs) system;
+          inherit system;
           inherit (config.nixpkgs) config;
         };
         # note: Linux/NixOS and Darwin each have a stable channel,
         # but there's only one unstable channel
         pkgsUnstable = import nixpkgs-unstable {
-          inherit (pkgs) system;
+          inherit system;
           inherit (config.nixpkgs) config;
         };
       };
-      overlayNixpkgsChannelsModule = { config, ... }: {
+      overlayNixpkgsChannelsModule = { config, pkgs, ... }: {
         nixpkgs.overlays = [
           (final: prev: {
-            inherit (genExtraNixpkgsChannels config)
+            inherit (genExtraNixpkgsChannels { inherit config; inherit (pkgs) system; })
               pkgsStableLinux pkgsStableDarwin pkgsUnstable;
           })
         ];
