@@ -11,6 +11,7 @@
     # but they should be small. And the Darwin one will be behind. So here we're just defaulting to a
     # slightly older nixpkgs.
     home-manager.inputs.nixpkgs.follows = "nixpkgs-darwin";
+    
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
   };

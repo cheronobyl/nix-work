@@ -2,23 +2,15 @@
 { pkgs, config, inputs, ... }:
 
 {
-  # Make sure the nix daemon always runs
-  services.nix-daemon.enable = true;
-  nix.package = pkgs._alt.unstable.nix;
-  nix.settings = {
-    ssl-cert-file = "/etc/ssl/certs/ca-certificates.crt";
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-  };
+  imports =
+  [
+    ../../modules/common.nix # Install config universal to all of Nix
+    ../../modules/darwin/common-darwin.nix # Install config required by Brew
+  ];
+  
   programs.zsh.enable = true;
-  system.defaults = {
-    dock.autohide = true;
-    NSGlobalDomain.AppleICUForce24HourTime = true;
-    NSGlobalDomain.AppleInterfaceStyle = "Dark";
-  };
-  users.users.caleb.home = "/Users/caleb";
+
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.caleb = { pkgs, ... }: {
@@ -40,29 +32,6 @@
     programs.fish.enable = true;
     home.packages = [
       pkgs.ripgrep
-    ];
-  };
-  homebrew = {
-    enable = true;
-    onActivation.autoUpdate = true;
-    onActivation.upgrade = true;
-    # updates homebrew packages on activation,
-    # can make darwin-rebuild much slower (otherwise i'd forget to do it ever though)
-    casks = [
-      "iina"
-      "discord"
-      "keepassxc"
-      "firefox"
-      "hammerspoon"
-      "iterm2"
-      "moonlight"
-      "protonvpn"
-      "rectangle"
-      "rustdesk"
-      "superslicer"
-      "steam"
-      "visual-studio-code"
-      "nrlquaker-winbox"
     ];
   };
 
