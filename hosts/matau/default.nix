@@ -62,6 +62,7 @@
       "superslicer"
       "steam"
       "visual-studio-code"
+      "zoom"
       "nrlquaker-winbox"
     ];
   };
