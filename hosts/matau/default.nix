@@ -55,6 +55,7 @@
       "firefox"
       "hammerspoon"
       "iterm2"
+      "multiviewer-for-f1"
       "moonlight"
       "protonvpn"
       "rectangle"
