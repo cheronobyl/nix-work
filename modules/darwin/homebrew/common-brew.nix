@@ -6,7 +6,7 @@
     enable = true;
     caskArgs.no_quarantine = true;
     onActivation = {
-      autoUpdate = true;
+      autoUpdate = false;
       upgrade = false;
       cleanup = "zap"; # Wipes any brew actions done outside of a darwin-rebuild, does not wipe Mas-installed applications
     };
@@ -19,7 +19,7 @@
       "hammerspoon"
       "iterm2"
       "moonlight"
-      "multiviewr-for-f1" # the best way to watch sports shit
+      "multiviewer-for-f1" # the best way to watch sports shit
       "protonvpn"
       "rectangle"
       "rustdesk"
