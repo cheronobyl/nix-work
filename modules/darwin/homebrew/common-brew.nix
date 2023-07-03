@@ -6,7 +6,7 @@
     enable = true;
     caskArgs.no_quarantine = true;
     onActivation = {
-      autoUpdate = false;
+      autoUpdate = true;
       upgrade = false;
       cleanup = "zap"; # Wipes any brew actions done outside of a darwin-rebuild, does not wipe Mas-installed applications
     };
@@ -19,17 +19,19 @@
       "hammerspoon"
       "iterm2"
       "moonlight"
+      "multiviewr-for-f1" # the best way to watch sports shit
       "protonvpn"
       "rectangle"
       "rustdesk"
+      "prusaslicer"
       "superslicer" # Probably moveable to Home Manager
       "steam"
       "visual-studio-code"
       "nrlquaker-winbox"
     ];
 
-    masApps = [ # Installs apps from the Mac App Store using Brew.
-
-    ];
+    #masApps = [ # Installs apps from the Mac App Store using Brew.
+    #
+    #];
   };
 }

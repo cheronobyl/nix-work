@@ -72,7 +72,7 @@
         ];
         inputs = { nixpkgs = nixpkgs-darwin; };
       };
-      nixosConfigurations."vakama" = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."vakama" = nixpkgs-linux.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           home-manager.nixosModules.home-manager

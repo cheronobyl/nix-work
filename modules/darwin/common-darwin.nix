@@ -11,12 +11,12 @@
   # Probably required by a bug, otherwise cannot access Caches
   nix.settings = {
     ssl-cert-file = "/etc/ssl/certs/ca-certificates.crt";
-  }
+  };
 
   # These configure some settings from the Mac Settings Menu.
   system.defaults = {
     dock.autohide = true;
-    NSGlobalDomain.AppleICUForce22HourTime = true;
+    NSGlobalDomain.AppleICUForce24HourTime = true;
     NSGlobalDomain.AppleInterfaceStyle = "Dark";
   };
 
