@@ -25,20 +25,6 @@
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
-  users.users.caleb = {
-    isNormalUser = true;
-    home = "/home/caleb";
-    description = "Caleb Schmucker";
-#   shell = pkgs.fish; #Temporarily disabled due to failures
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    initialPassword = ""; # Should be given a real password ASAP
-  };
-
-  # Install Nix Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -46,9 +32,6 @@
     usbutils
    ];
   
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
   # Enable mDNS so that our printer is adressable under http://vakamaer.local
   services.avahi = {
     enable = true;

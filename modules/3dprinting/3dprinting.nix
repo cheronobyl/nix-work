@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./klipper.nix
+      ./Kcr10v3/klipper.nix
     ];
 
   # nixpkgs.overlays  = [ 

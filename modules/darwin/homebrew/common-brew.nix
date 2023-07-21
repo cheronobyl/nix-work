@@ -23,15 +23,13 @@
       "protonvpn"
       "rectangle"
       "rustdesk"
-      "prusaslicer"
-      "superslicer" # Probably moveable to Home Manager
       "steam"
       "visual-studio-code"
       "nrlquaker-winbox"
+      "zoom"
     ];
 
-    #masApps = [ # Installs apps from the Mac App Store using Brew.
-    #
-    #];
+     masApps = { # Installs apps from the Mac App Store using Brew.
+     };
   };
 }
