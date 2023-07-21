@@ -24,13 +24,6 @@
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
-
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-    usbutils
-   ];
   
   # Enable mDNS so that our printer is adressable under http://vakamaer.local
   services.avahi = {

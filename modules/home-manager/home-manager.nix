@@ -1,6 +1,13 @@
 { pkgs, config, inputs, ... }:
 # home-manager config
 {
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.caleb = { pkgs, ... }: {
@@ -19,9 +26,12 @@
         bind-key -n C-a send-prefix
       '';
     };
-    programs.fish.enable = true;
     home.packages = [
       pkgs.ripgrep
+      pkgs.git
+      pkgs.vscode
+      pkgs.firefox
     ];
+    
   };
 }

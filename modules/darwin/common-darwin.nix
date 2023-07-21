@@ -22,5 +22,14 @@
 
   # Resolves an issue in Home Manager on Darwin
   users.users.caleb.home = "/Users/caleb";
+  users.users.caleb.shell = pkgs.fish ;
+  programs.fish.enable = true; # preferred shell
+  programs.zsh.enable = true; # default shell on catalina
+  environment.loginShell = pkgs.fish ; # This doesnt seem to work properly, investigate later on
+  environment.shells = with pkgs; [
+    fish zsh
+  ]; # nix-darwin appends macOS defaults for us
+
+  # Create /etc/zshrc that loads the nix-darwin environment.
 
 }

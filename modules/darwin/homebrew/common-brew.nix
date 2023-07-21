@@ -18,6 +18,7 @@
       "firefox" # Move to Home Manager
       "hammerspoon"
       "iterm2"
+      "jitsi-meet"
       "moonlight"
       "multiviewer-for-f1" # the best way to watch sports shit
       "protonvpn"
