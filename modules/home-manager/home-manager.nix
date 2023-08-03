@@ -29,8 +29,7 @@
     home.packages = [
       pkgs.ripgrep
       pkgs.git
-      pkgs.vscode
-      pkgs.firefox
+      pkgs.mtr
     ];
     
   };
