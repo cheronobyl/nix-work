@@ -30,6 +30,7 @@
       pkgs.ripgrep
       pkgs.git
       pkgs.mtr
+      pkgs.wget
     ];
     
   };
