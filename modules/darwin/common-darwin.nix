@@ -30,6 +30,4 @@
     fish zsh
   ]; # nix-darwin appends macOS defaults for us
 
-  # Create /etc/zshrc that loads the nix-darwin environment.
-
 }

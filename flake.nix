@@ -43,42 +43,15 @@
         ];
       };
     in {
-      darwinConfigurations."gali" = darwin.lib.darwinSystem {
-        # 2015 MBP, 13in
-        system = "x86_64-darwin";
-        modules = [
-          home-manager.darwinModules.home-manager
-          ./hosts/gali/default.nix
-          overlayNixpkgsChannelsModule
-        ];
-      };
-      darwinConfigurations."lewa" = darwin.lib.darwinSystem {
-        # 2017 MBP, 15in
-        system = "x86_64-darwin";
-        modules = [
-          home-manager.darwinModules.home-manager
-          ./hosts/lewa/default.nix
-          overlayNixpkgsChannelsModule
-        ];
-        inputs = { nixpkgs = nixpkgs-unstable; };
-      };
-      darwinConfigurations."matau" = darwin.lib.darwinSystem {
+      darwinConfigurations."Calebs-Macbook-Pro" = darwin.lib.darwinSystem {
         # 2021 MBP, 14in
         system = "aarch64-darwin";
         modules = [
           home-manager.darwinModules.home-manager
-          ./hosts/matau/default.nix
+          ./hostsCalebs-Macbook-Pro/default.nix
           overlayNixpkgsChannelsModule
         ];
         inputs = { nixpkgs = nixpkgs-darwin; };
-      };
-      nixosConfigurations."vakama" = nixpkgs-linux.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          ./hosts/vakama/default.nix
-          overlayNixpkgsChannelsModule
-          ];
       };
     };
 }
