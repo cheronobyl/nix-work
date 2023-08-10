@@ -1,7 +1,7 @@
 {
 
   inputs = {
-    # I think this should allow me to source the righht config for the right system type.
+    # I think this should allow me to source the right config for the right system type.
     nixpkgs-linux.url = "github:NixOS/nixpkgs/nixos-23.05";
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -11,6 +11,7 @@
     # but they should be small. And the Darwin one will be behind. So here we're just defaulting to a
     # slightly older nixpkgs.
     home-manager.inputs.nixpkgs.follows = "nixpkgs-darwin";
+    
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
   };
@@ -70,6 +71,14 @@
           overlayNixpkgsChannelsModule
         ];
         inputs = { nixpkgs = nixpkgs-darwin; };
+      };
+      nixosConfigurations."vakama" = nixpkgs-linux.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./hosts/vakama/default.nix
+          overlayNixpkgsChannelsModule
+          ];
       };
     };
 }
